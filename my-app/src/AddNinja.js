@@ -8,7 +8,6 @@ class AddNinja extends Component{
     }
     handlechange=(e)=>
     {
-        
         this.setState(
             {
               [e.target.id]:e.target.value
@@ -17,7 +16,8 @@ class AddNinja extends Component{
     }
     handleSubmit=(e)=>{
 e.preventDefault();
-console.log(this.state);
+this.props.addNinja(this.state)
+//console.log(this.state);
     }
     render()
     {

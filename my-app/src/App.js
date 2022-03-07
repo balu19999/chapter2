@@ -8,8 +8,28 @@ class App extends Component
       {name:'ajay',age:'30',belt:'blue',id:1},
       {name:'pruthvi',age:'27',belt:'black',id:2},
       {name:'balu',age:'20',belt:'green',id:3}
-
-    ]
+     ]
+    }
+  addNinja=(ninja)=>
+  {
+    ninja.id=Math.random();
+    let ninjas=[...this.state.ninjas, ninja]
+    this.setState(
+      {
+        ninjas:ninjas
+      }
+    )
+  }
+  deleteNinja=(id)=>{
+    let ninjas=this.state.ninjas.filter(ninja=>
+      {
+        return ninja.id !==id
+      })
+      this.setState(
+        {
+          ninjas:ninjas
+        }
+      )
 
   }
   render(){
@@ -17,8 +37,8 @@ class App extends Component
     <div className="App">
      <h1>my first react app</h1>
      <p>welcome</p>
-     <Ninjas ninjas={this.state.ninjas}/>
-     <AddNinja />
+     <Ninjas deleteNinja={this.deleteNinja} ninjas={this.state.ninjas}/>
+     <AddNinja addNinja={this.addNinja}/>
     </div>
   );
 }
