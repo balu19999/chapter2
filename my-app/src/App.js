@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Ninjas from './Ninjas';
 import AddNinja from './AddNinja';
+import './Ninjas.css'
 
 class App extends Component 
 {
@@ -31,6 +32,15 @@ class App extends Component
         }
       )
 
+  }
+  componentDidMount()
+  {
+    console.log('component mounted');
+  }
+  componentDidUpdate(prevProps,prevState)
+  {
+    console.log('component updated');
+    console.log(prevProps,prevState);
   }
   render(){
   return (
